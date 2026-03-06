@@ -21,3 +21,16 @@ export const getHealthRec = async () => {
     })
     return healthRec
 }
+export const getHealthRecById = async (numId) => {
+    const healthRec = await prisma.healthRecord.findMany({
+        where: {id: numId},
+        select: {
+            id: true,
+            type: true,
+            value: true,
+            userId: true,
+            date: true
+        }
+    })
+    return healthRec
+}

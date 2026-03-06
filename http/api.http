@@ -98,3 +98,8 @@ Authorization: Bearer {{tokenUser}}
 GET {{baseURL}}/health-records
 Content-Type: application/json
 Authorization: Bearer {{tokenUser}}
+
+###GET HR
+GET {{baseURL}}/health-records/6
+Content-Type: application/json
+Authorization: Bearer {{tokenUser}}
