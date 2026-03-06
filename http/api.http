@@ -4,6 +4,79 @@
 GET {{baseURL}}
 
 
-###AUTH
+#########AUTH
 ### POST register doctor
 POST {{baseURL}}/auth/register/doctor
+Content-Type: application/json
+
+{
+  "username": "dr_PPich",
+  "password": "password",
+  "specialization": "Cardiologist"
+}
+
+### POST register user
+POST {{baseURL}}/auth/register/user
+Content-Type: application/json
+
+{
+  "username": "Peachayapa",
+  "password": "password"
+}
+
+### POST login doctor
+POST {{baseURL}}/auth/login/doctor
+Content-Type: application/json
+
+{
+  "username": "dr_PPich",
+  "password": "password"
+}
+
+### POST login user
+POST {{baseURL}}/auth/login/user
+Content-Type: application/json
+
+{
+  "username": "Peachayapa",
+  "password": "password"
+}
+
+
+
+
+#########Users Doctors
+### GET users
+@tokenUserGET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJQZWFjaGF5YXBhIiwiaWF0IjoxNzcyNzkwODM1LCJleHAiOjE3NzUzODI4MzV9.w5UOORCH7o7cLZfrSDpJUoLyyOQk9Bk0mfOF7OcwjOo
+GET {{baseURL}}/users/me
+Content-Type: application/json
+Authorization: Bearer {{tokenUserGET}}
+
+### PUT users
+@tokenUserPUT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJQZWFjaGF5YXBhIiwiaWF0IjoxNzcyNzkwODM1LCJleHAiOjE3NzUzODI4MzV9.w5UOORCH7o7cLZfrSDpJUoLyyOQk9Bk0mfOF7OcwjOo
+PUT {{baseURL}}/users/me
+Content-Type: application/json
+Authorization: Bearer {{tokenUserPUT}}
+
+{
+  "username": "PeachPUT",
+  "password": "newpass"
+}
+
+### GET doctors
+@tokenDoctorGET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJkcl9QUGljaCIsImlhdCI6MTc3Mjc4ODcxMSwiZXhwIjoxNzc1MzgwNzExfQ.70vyl-3z__Nnfa7KMeTtYw8foudBUMYMZeeYDRGoYxI
+GET {{baseURL}}/doctors/me
+Content-Type: application/json
+Authorization: Bearer {{tokenDoctorGET}}
+
+### PUT doctors
+@tokenDoctorPUT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJkcl9QUGljaCIsImlhdCI6MTc3Mjc4ODcxMSwiZXhwIjoxNzc1MzgwNzExfQ.70vyl-3z__Nnfa7KMeTtYw8foudBUMYMZeeYDRGoYxI
+PUT {{baseURL}}/doctors/me
+Content-Type: application/json
+Authorization: Bearer {{tokenDoctorPUT}}
+
+{
+  "username": "DR_PeachPUT",
+  "password": "newpass",
+  "specialization": "Archi"
+}

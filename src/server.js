@@ -1,6 +1,9 @@
 import express from 'express';
 import "dotenv/config";
 import authRoute from './routes/auth.route.js';
+import errHandler from './middlewares/errHandler.js';
+import usersRoute from './routes/users.route.js';
+import doctorsRoute from './routes/doctors.route.js';
 
 
 const app = express();
@@ -13,7 +16,11 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/auth",authRoute)
+app.use("/users",usersRoute)
+app.use("/doctors",doctorsRoute)
 
+
+app.use(errHandler)
 
 app.listen(port, ()=>{
     console.log(`Server is running at http://localhost:${port}`)
