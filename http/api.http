@@ -1,0 +1,9 @@
+@baseURL = http://localhost:3030
+
+###WELCOME
+GET {{baseURL}}
+
+
+###AUTH
+### POST register doctor
+POST {{baseURL}}/auth/register/doctor
