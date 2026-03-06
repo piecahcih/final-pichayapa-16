@@ -4,6 +4,7 @@ import authRoute from './routes/auth.route.js';
 import errHandler from './middlewares/errHandler.js';
 import usersRoute from './routes/users.route.js';
 import doctorsRoute from './routes/doctors.route.js';
+import healthrecRoutes from './routes/healthrec.route.js';
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.get("/",(req,res)=>{
 app.use("/auth",authRoute)
 app.use("/users",usersRoute)
 app.use("/doctors",doctorsRoute)
+app.use("/health-records",healthrecRoutes)
 
 
 app.use(errHandler)

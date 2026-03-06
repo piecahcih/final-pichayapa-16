@@ -46,37 +46,55 @@ Content-Type: application/json
 
 
 #########Users Doctors
+@tokenUser = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJQZWFjaGF5YXBhIiwiaWF0IjoxNzcyNzkwODM1LCJleHAiOjE3NzUzODI4MzV9.w5UOORCH7o7cLZfrSDpJUoLyyOQk9Bk0mfOF7OcwjOo
+
+@tokenDoctor = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJkcl9QUGljaCIsImlhdCI6MTc3Mjc4ODcxMSwiZXhwIjoxNzc1MzgwNzExfQ.70vyl-3z__Nnfa7KMeTtYw8foudBUMYMZeeYDRGoYxI
+
 ### GET users
-@tokenUserGET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJQZWFjaGF5YXBhIiwiaWF0IjoxNzcyNzkwODM1LCJleHAiOjE3NzUzODI4MzV9.w5UOORCH7o7cLZfrSDpJUoLyyOQk9Bk0mfOF7OcwjOo
 GET {{baseURL}}/users/me
 Content-Type: application/json
-Authorization: Bearer {{tokenUserGET}}
+Authorization: Bearer {{tokenUser}}
 
 ### PUT users
-@tokenUserPUT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJQZWFjaGF5YXBhIiwiaWF0IjoxNzcyNzkwODM1LCJleHAiOjE3NzUzODI4MzV9.w5UOORCH7o7cLZfrSDpJUoLyyOQk9Bk0mfOF7OcwjOo
 PUT {{baseURL}}/users/me
 Content-Type: application/json
-Authorization: Bearer {{tokenUserPUT}}
+Authorization: Bearer {{tokenUser}}
 
 {
-  "username": "PeachPUT",
+  "username": "PeachPUTneww",
   "password": "newpass"
 }
 
 ### GET doctors
-@tokenDoctorGET = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJkcl9QUGljaCIsImlhdCI6MTc3Mjc4ODcxMSwiZXhwIjoxNzc1MzgwNzExfQ.70vyl-3z__Nnfa7KMeTtYw8foudBUMYMZeeYDRGoYxI
 GET {{baseURL}}/doctors/me
 Content-Type: application/json
-Authorization: Bearer {{tokenDoctorGET}}
+Authorization: Bearer {{tokenDoctor}}
 
 ### PUT doctors
-@tokenDoctorPUT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJkcl9QUGljaCIsImlhdCI6MTc3Mjc4ODcxMSwiZXhwIjoxNzc1MzgwNzExfQ.70vyl-3z__Nnfa7KMeTtYw8foudBUMYMZeeYDRGoYxI
 PUT {{baseURL}}/doctors/me
 Content-Type: application/json
-Authorization: Bearer {{tokenDoctorPUT}}
+Authorization: Bearer {{tokenDoctor}}
 
 {
-  "username": "DR_PeachPUT",
+  "username": "DR_PeachPUTnew",
   "password": "newpass",
   "specialization": "Archi"
 }
+
+
+
+#########Health Records
+### POST Health Records
+POST {{baseURL}}/health-records
+Content-Type: application/json
+Authorization: Bearer {{tokenUser}}
+
+{
+  "type": "Diabetes",
+  "value": "120/80 mmHg"
+}
+
+###GET HR
+GET {{baseURL}}/health-records
+Content-Type: application/json
+Authorization: Bearer {{tokenUser}}
